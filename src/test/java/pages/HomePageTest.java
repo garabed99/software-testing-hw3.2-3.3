@@ -7,6 +7,14 @@ import static org.testng.Assert.*;
 public class HomePageTest {
 
     @Test
-    public void testGoToAllQuestionsPage() {
+    public void testSearch() {
+    }
+
+    @Test
+    public void testGoToSearchResultsPage() {
+    }
+
+    @Test
+    public void testGoToCareersPage() {
     }
 }
