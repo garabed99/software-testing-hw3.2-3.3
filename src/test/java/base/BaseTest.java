@@ -9,9 +9,23 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
-
+import constants.urls.Urls;
 
 public class BaseTest {
     public static WebDriver driver;
-//    System.setProperty("webdriver.chrome.driver","util/chromedriver.exe");
+    public HomePage homePage;
+
+    @BeforeClass
+    public void setUp(){
+        System.setProperty("webdriver.chrome.driver", "resources\\chromedriver.exe");
+    }
+
+    @BeforeMethod
+    public HomePage goHome(){
+        driver = new ChromeDriver();
+        homePage = new HomePage(driver);
+        driver.get(Urls.SUT_URL);
+        driver.manage().window().maximize();
+        return homePage;
+    }
 }
