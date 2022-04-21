@@ -15,18 +15,17 @@ public class AllQuestionsPage {
         this.driver = driver;
     }
 
-    public String getSecondHighestQuestion() {
-        WebElement filterBtn = driver.findElement(postActivityButton);
-        filterBtn.click();
-        WebElement highestScoreOption = driver.findElement(highestScore);
-        highestScoreOption.click();
-        WebElement applyFilterBtn = driver.findElement(applyFilterButton);
-        applyFilterBtn.click();
+    //gets title
+    public String getSecondHighestViewedQuestion() {
+        driver.findElement(postActivityButton).click();
+        driver.findElement(highestScore).click();
+        driver.findElement(applyFilterButton).click();
         WebElement secondResultTitle = driver.findElement(secondResult);
         return secondResultTitle.getText();
     }
 
-    public void goToSecondHighestQuestion() {
+    //goes to the page
+    public void goToSecondHighestViewedQuestion() {
         WebElement filterBtn = driver.findElement(postActivityButton);
         filterBtn.click();
         WebElement highestScoreOption = driver.findElement(highestScore);
@@ -35,5 +34,6 @@ public class AllQuestionsPage {
         applyFilterBtn.click();
         WebElement secondResultTitle = driver.findElement(secondResult);
         secondResultTitle.click();
+
     }
 }
