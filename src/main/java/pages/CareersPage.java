@@ -4,7 +4,7 @@ import static constants.locators.CareersPageConstants.*;
 
 public class CareersPage {
     private WebDriver driver;
-    private By allTeams = By.xpath(ALL_TEAMS);
+    private By allTeams = By.id(ALL_TEAMS);
     private By itTeam = By.xpath(IT_TEAM);
     private By firstOption = By.xpath(FIRST_OPTION);
 

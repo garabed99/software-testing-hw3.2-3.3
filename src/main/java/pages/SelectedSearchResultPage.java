@@ -19,6 +19,6 @@ public class SelectedSearchResultPage {
 
     public void changeLanguageToFrench() {
         driver.findElement(languageBtn).click();
-        driver.findElement(frenchLanguage);
+        driver.findElement(frenchLanguage).click();
     }
 }
