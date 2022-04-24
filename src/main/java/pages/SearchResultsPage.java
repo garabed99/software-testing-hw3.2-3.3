@@ -1,8 +1,6 @@
 package pages;
 import org.openqa.selenium.*;
-
 import java.util.List;
-
 import static constants.locators.SearchResultsPageConstants.*;
 
 public class SearchResultsPage {
@@ -18,13 +16,10 @@ public class SearchResultsPage {
         return searchList;
     }
 
+
+
     public SelectedSearchResultPage goToSpecificResultPage(int num) {
         getSearchedResults().get(num).findElement(By.xpath("h3/a")).click();
         return new SelectedSearchResultPage(driver);
     }
-
-//    public SelectedSearchResultPage goToSelectedSearchResultsPage() {
-//        driver.findElement(firstResult).click();
-//        return new SelectedSearchResultPage(driver);
-//    }
 }

@@ -4,9 +4,7 @@ import base.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import java.util.concurrent.TimeUnit;
-
 import static constants.locators.SelectedCareersPageConstants.*;
 import static constants.locators.SelectedSearchResultPage.*;
 import static constants.locators.SearchResultsPageConstants.*;

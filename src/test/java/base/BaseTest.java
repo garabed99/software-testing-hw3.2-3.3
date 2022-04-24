@@ -1,5 +1,4 @@
 package base;
-
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
 import com.google.common.io.Files;
@@ -14,7 +13,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.ITestResult;
 import pages.HomePage;
 import constants.urls.Urls;
-
 import java.io.File;
 import java.io.IOException;
 

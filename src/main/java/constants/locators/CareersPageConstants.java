@@ -1,8 +1,12 @@
 package constants.locators;
 
 public class CareersPageConstants {
-    public static final String ALL_TEAMS = "id_team";
+    public static final String TEAM = "id_team";
+    public static final String LOCATION = "//*[@id=\"id_location\"]";
+    public static final String GERMANY = "//*[@id=\"id_location\"]/option[6]";
     public static final String IT_TEAM = "//option[contains(text(),'IT')]";
     public static final String FIRST_OPTION = "//a[contains(text(),'Manager, IT Project Management')]";
+    public static final String JOB_TITLE = "//*[@id=\"listings-positions\"]/tbody/tr[57]/td[1]/a";
+
 
 }
