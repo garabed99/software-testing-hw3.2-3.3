@@ -12,10 +12,10 @@ private By jobTitle = By.xpath(JOB_TITLE);
     }
 
     @Test
-    public void selectITinGermany() {
+    public void selectITinPortland() {
         CareersPage careersPage = homePage.goToCareersPage();
-        careersPage.selectITinGermany();
-        assertTrue(driver.findElement(jobTitle).getText().contains("Senior Site Reliability Engineer"), "No such position");
+        careersPage.selectITinPortland();
+        assertTrue(driver.findElement(jobTitle).getText().contains("Senior Manager, Application"), "No such position");
 
     }
 

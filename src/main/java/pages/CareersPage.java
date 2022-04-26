@@ -6,7 +6,7 @@ public class CareersPage {
     private WebDriver driver;
     private By team = By.id(TEAM);
     private By location = By.xpath(LOCATION);
-    private By germany = By.xpath(GERMANY);
+    private By portland = By.xpath(PORTLAND);
     private By itTeam = By.xpath(IT_TEAM);
     private By firstOption = By.xpath(FIRST_OPTION);
 
@@ -25,10 +25,10 @@ public class CareersPage {
         return new SelectedCareersPage(driver);
     }
 
-    public void selectITinGermany() {
+    public void selectITinPortland() {
         driver.findElement(team).click();
         driver.findElement(itTeam).click();
         driver.findElement(location).click();
-        driver.findElement(germany).click();
+        driver.findElement(portland).click();
     }
 }
