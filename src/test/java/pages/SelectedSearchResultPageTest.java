@@ -5,12 +5,13 @@ import static org.testng.Assert.*;
 
 public class SelectedSearchResultPageTest extends BaseTest {
 
-    @Test
-    public void testGetTopicTitle() {
+//    @Test
+//    public void testGetTopicTitle() {
+//        SearchResultsPage searchResultsPage = homePage.goToSearchResultsPage();
+//        SelectedSearchResultPage selectedSearchResultPage = searchResultsPage.goToSpecificResultPage(1);
+//        String title = selectedSearchResultPage.getTopicTitle();
+//        assertTrue(title.contains(""), "wrong page");
+//
+//    }
 
-    }
-
-    @Test
-    public void testChangeLanguageToFrench() {
-    }
 }

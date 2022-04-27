@@ -21,10 +21,12 @@ public class FeaturedArticlePageTest extends BaseTest {
     }
 
     @Test
-    public void testInteractWithExample() {
+    public void testInteractWithExample() throws InterruptedException {
         FeaturedArticlePage featuredArticlePage = homePage.goToFeaturedArticlePage();
+        featuredArticlePage.changeLanguage();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         featuredArticlePage.interactWithExample();
-        assertTrue(driver.findElement(outputResult).getText().contains("Brine shrimp button clicked"), "Not Found");
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        assertTrue(driver.findElement(outputResult).getText().contains("Crevette en saumure bouton cliqué"), "Not Found");
     }
 }

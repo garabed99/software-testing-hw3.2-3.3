@@ -2,6 +2,9 @@ package pages;
 import constants.dataproviders.dataprovider;
 import base.BaseTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
@@ -15,15 +18,21 @@ private By titleSearch = By.xpath("//*[@id=\"content\"]/article/div[2]/ul/li[1]/
 private By titleCareer = By.xpath(POSITION_TITLE);
 private By inThisArticle = By.xpath(IN_THIS_ARTICLE);
 private By firstParagraph = By.xpath(FIRST_SENTENCE);
-private By resultsFound = By.xpath(RESULTS_FOUND);
+private By firstResult = By.xpath(FIRST_RESULT);
+private By resultsNotFound = By.xpath(RESULTS_NOT_FOUND);
+
 
     @Test
     public void testValidSearch() {
          homePage.search(".reduce()");
          SearchResultsPage searchResultsPage = homePage.goToSearchResultsPage();
-         SelectedSearchResultPage selectedSearchResultPage = searchResultsPage.goToSpecificResultPage(0);
+//         SelectedSearchResultPage selectedSearchResultPage = searchResultsPage.goToSpecificResultPage(1);
+        SelectedSearchResultPage selectedSearchResultPage = searchResultsPage.getFirstSearchedResult();
          selectedSearchResultPage.changeLanguageToFrench();
-         assertTrue(driver.findElement(firstParagraph).getText().contains("La méthode reduce()"), "wrong page");
+        WebElement paragraphCheck = new WebDriverWait(driver, 3)
+                .until(ExpectedConditions.presenceOfElementLocated(firstParagraph));
+
+         assertTrue(paragraphCheck.getText().contains("La méthode"), "wrong page");
 
         //foreach the list to check the h3 if it contains the text
 
@@ -35,8 +44,8 @@ private By resultsFound = By.xpath(RESULTS_FOUND);
     public void testInvalidSearch() {
         homePage.search("jkhdasgfjasdhgf");
         SearchResultsPage searchResultsPage = homePage.goToSearchResultsPage();
-        searchResultsPage.getSearchedResults();
-        assertTrue(driver.findElement(resultsFound).getText().contains("Found 0 matches"), "Seems like website found a result");
+        searchResultsPage.getResultNotFound();
+        assertTrue(driver.findElement(resultsNotFound).getText().contains("Found 0 matches"), "Seems like website found a result");
     }
 
     @Test
@@ -52,5 +61,6 @@ private By resultsFound = By.xpath(RESULTS_FOUND);
     @Test
     public void testChangeTheme() {
         homePage.changeTheme();
+
     }
 }

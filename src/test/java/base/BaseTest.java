@@ -20,7 +20,7 @@ public class BaseTest {
     public static WebDriver driver;
     public HomePage homePage;
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp(){
         System.setProperty("webdriver.chrome.driver", "resources\\chromedriver.exe");
         goHome();
@@ -36,7 +36,7 @@ public class BaseTest {
 
     @AfterClass
     public void tearDown() {
-        driver.quit();
+  //      driver.quit();
     }
 
     @AfterMethod
@@ -50,6 +50,7 @@ public class BaseTest {
                 e.printStackTrace();
             }
         }
+        driver.quit();
     }
 
 }

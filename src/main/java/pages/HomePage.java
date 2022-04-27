@@ -12,6 +12,7 @@ public class HomePage {
     private By searchBar = By.xpath(SEARCH_BAR);
     private By searchIcon = By.xpath(SEARCH_ICON);
     private By featuredArticle = By.xpath(FEATURED_ARTICLE);
+
     private String careersBtn = CAREERS_JS;
     private By themeBtn = By.className(THEME_BUTTON);
     private String lightTheme = LIGHT_THEME_JS;
