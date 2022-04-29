@@ -7,12 +7,13 @@ import static constants.locators.CareersPageConstants.*;
 
 public class CareersPageTest extends BaseTest {
 private By jobTitle = By.xpath(JOB_TITLE);
+private By location = By.xpath(FIRST_LOCATION);
 
     @Test
-    public void selectITinPortland() {
+    public void checkRemotePosition() {
         CareersPage careersPage = homePage.goToCareersPage();
-        careersPage.selectITinPortland();
-        assertTrue(driver.findElement(jobTitle).getText().contains("Senior Manager, Application"), "No such position");
+        careersPage.isPositionRemote();
+        assertTrue(driver.findElement(location).getText().contains("Remote"), "No such position");
     }
 
 }

@@ -1,5 +1,6 @@
 package pages;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,8 +18,8 @@ public class FeaturedArticlePage {
 //    private By exampleSection = By.xpath(GO_TO_EXAMPLES);
 
     private By resultSection = By.xpath(GO_TO_RESULTS);
-    private By exampleIframe = By.xpath(EXAMPLE_IFRAME);
-    private By innerExampleBtn = By.xpath(DETAILS_BUTTON);
+    private By exampleIframe = By.className(EXAMPLE_IFRAME);
+    private By innerExampleBtn = By.id(DETAILS_BUTTON);
     private By chooseBtn = By.xpath(CHOOSE_BUTTON);
     private By brineShrimp = By.xpath(BRINE_SHRIMP);
     private By confirmBtn = By.xpath(CONFIRM_BUTTON);
@@ -42,7 +43,12 @@ public class FeaturedArticlePage {
         System.out.println("switchto iFrame:");
         driver.switchTo().frame(iframe);
         System.out.println("click exampleBtn:");
-        driver.findElement(innerExampleBtn).click();
+        WebElement btn = driver.findElement(innerExampleBtn);
+//        Actions actions = new Actions(driver);
+//        actions.moveToElement(btn).click().build().perform();
+
+        JavascriptExecutor jse2 = (JavascriptExecutor)driver;
+        jse2.executeScript("arguments[0].scrollIntoView()", btn);
         System.out.println("click chooseBtn:");
         driver.findElement(chooseBtn).click();
         System.out.println(" select shrimp:");
